@@ -1,2 +1,2 @@
 # Inventory-Management
-Inventory Management System written in C. 
+Inventory Management System written using the MERN stack.
