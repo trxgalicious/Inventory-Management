@@ -3,9 +3,10 @@ import { useNavigate } from "react-router";
 
 export default function Create() {
  const [form, setForm] = useState({
-   name: "",
-   position: "",
-   level: "",
+   item: "",
+   quantity: "",
+   maxQuantity: "",
+   quantity_threshold: "",
  });
  const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ export default function Create() {
      return;
    });
 
-   setForm({ name: "", position: "", level: "" });
+   setForm({ item: "", quantity: "", maxQuantity: "", quantity_threshold: "" });
    navigate("/");
  }
 
@@ -45,62 +46,44 @@ export default function Create() {
      <h3>Create New Record</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">
-         <label htmlFor="name">Name</label>
+         <label htmlFor="item">Item</label>
          <input
            type="text"
            className="form-control"
-           id="name"
-           value={form.name}
-           onChange={(e) => updateForm({ name: e.target.value })}
+           id="item"
+           value={form.item}
+           onChange={(e) => updateForm({ item: e.target.value })}
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Position</label>
+         <label htmlFor="quantity">Quantity</label>
          <input
            type="text"
            className="form-control"
-           id="position"
-           value={form.position}
-           onChange={(e) => updateForm({ position: e.target.value })}
+           id="quantity"
+           value={form.quantity}
+           onChange={(e) => updateForm({ quantity: e.target.value })}
          />
        </div>
        <div className="form-group">
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionIntern"
-             value="Intern"
-             checked={form.level === "Intern"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionIntern" className="form-check-label">Intern</label>
-         </div>
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionJunior"
-             value="Junior"
-             checked={form.level === "Junior"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionJunior" className="form-check-label">Junior</label>
-         </div>
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionSenior"
-             value="Senior"
-             checked={form.level === "Senior"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionSenior" className="form-check-label">Senior</label>
-         </div>
+          <label htmlFor="maxQuantity">Max Quantity</label>
+          <input
+            type="text"
+            className="form-control"
+            id="maxQuantity"
+            value={form.maxQuantity}
+            onChange={(e) => updateForm({ maxQuantity: e.target.value })}
+          />
+       </div>
+       <div className="form-group">
+        <label htmlFor="quantity_threshold">Threshold</label>
+        <input
+          type="text"
+          className="form-control"
+          id="quantity_threshold"
+          value={form.quantity_threshold}
+          onChange={(e) => updateForm({ quantity_threshold: e.target.value })}
+         />
        </div>
        <div className="form-group">
          <input

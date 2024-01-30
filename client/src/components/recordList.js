@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 const Record = (props) => (
  <tr>
-   <td>{props.record.name}</td>
-   <td>{props.record.position}</td>
-   <td>{props.record.level}</td>
+   <td>{props.record.item}</td>
+   <td>{props.record.quantity}</td>
+   <td>{props.record.maxQuantity}</td>
+   <td>{props.record.quantity_threshold}</td>
    <td>
      <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
      <button className="btn btn-link"
@@ -72,9 +73,10 @@ export default function RecordList() {
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
-           <th>Name</th>
-           <th>Position</th>
-           <th>Level</th>
+           <th>Item</th>
+           <th>Quantity</th>
+           <th>Max Quantity</th>
+           <th>Quantity Threshold</th>
            <th>Action</th>
          </tr>
        </thead>
